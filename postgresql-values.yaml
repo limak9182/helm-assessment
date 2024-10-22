@@ -1,0 +1,25 @@
+global:
+  postgresql:
+    auth:
+      postgresPassword: myadminpassword
+      usernameSecret: postgresql-secret
+      passwordSecret: postgresql-secret
+      usernameKey: username
+      passwordKey: password
+      database: mydatabase
+
+primary:
+  service:
+    type: ClusterIP
+  networkPolicy:
+    enabled: true
+    allowExternal: false
+    allowExternalEgress: false
+    extraIngress:
+      - from:
+        - podSelector:
+            matchLabels:
+              app: backend
+
+persistence:
+  enabled: false

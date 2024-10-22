@@ -1,0 +1,27 @@
+image:
+  repository: vindsburg/assessment-front
+  tag: latest
+service:
+  enabled: false
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: frontend.com
+      paths:
+        - /
+  admin:
+    enabled: false
+    annotations: 
+      nginx.ingress.kubernetes.io/whitelist-source-range: "192.168.1.1/32,192.168.1.2/32"
+    paths:
+      - /admin
+      - /api/internal
+
+hpa:
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80

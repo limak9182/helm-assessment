@@ -1,0 +1,22 @@
+image:
+  repository: vindsburg/assessment-front
+  tag: latest
+service:
+  enabled: true
+  port: 80
+
+ingress:
+  enabled: true
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: frontend.com
+      paths:
+        - /
+  admin:
+    enabled: true
+    annotations: 
+      nginx.ingress.kubernetes.io/whitelist-source-range: "192.168.1.1/32,192.168.1.2/32"
+    paths:
+      - /admin
+      - /api/internal

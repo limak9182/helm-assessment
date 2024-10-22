@@ -1,0 +1,18 @@
+replicaCount: 2
+image:
+  repository: vindsburg/assessment-back
+  tag: latest
+service:
+  enabled: true
+  port: 80
+
+postgresql:
+  server: postgres-server-name
+  database: mydatabase
+  username: myuser
+  password: mypassword
+
+hpa:
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80

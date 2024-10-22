@@ -1,0 +1,7 @@
+replicaCount: 2
+image:
+  repository: vindsburg/assessment-back
+  tag: latest
+service:
+  enabled: false
+  port: 80

@@ -1,0 +1,6 @@
+controller:
+  service:
+    enabled: true
+    annotations:
+      service.beta.kubernetes.io/port-forwarding: "true"
+  watchIngressWithoutClass: true
