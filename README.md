@@ -51,3 +51,7 @@ I was a little bit sad that I was not able to write terraform :') to adjust the 
 ### Include any testing or verification steps you'd recommend post-deployment
 
 No testing (different than manual playing with what I created) was done, I'm really curious what can be done here. I can imagine that some sort of automation here might be very helpful but I don't know any solution or patterns in that area.
+
+### IP whitelist for the `/admin` and `/api/internal` paths
+
+The whitelist was implemented simnply using nginx ingress controller adnotations. Creating different ingress for those paths is a simple and choosen solution. 
